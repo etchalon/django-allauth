@@ -87,7 +87,7 @@ class SocialAccount(models.Model):
         return authenticate(account=self)
 
     def __str__(self):
-        return force_text(self.user)
+        return '%s / %s' % (self.provider, force_text(self.user))
 
     def get_profile_url(self):
         return self.get_provider_account().get_profile_url()
