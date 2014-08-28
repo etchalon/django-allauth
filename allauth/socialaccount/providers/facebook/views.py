@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 
 def fb_complete_login(request, app, token):
-    resp = requests.get('https://graph.facebook.com/me',
+    resp = requests.get('https://graph.facebook.com/v2.0/me',
                         params={'access_token': token.token})
     resp.raise_for_status()
     extra_data = resp.json()
@@ -36,7 +36,7 @@ class FacebookOAuth2Adapter(OAuth2Adapter):
     provider_id = FacebookProvider.id
 
     authorize_url = 'https://www.facebook.com/dialog/oauth'
-    access_token_url = 'https://graph.facebook.com/oauth/access_token'
+    access_token_url = 'https://graph.facebook.com/v2.0/oauth/access_token'
     expires_in_key = 'expires'
 
     def complete_login(self, request, app, access_token, **kwargs):
