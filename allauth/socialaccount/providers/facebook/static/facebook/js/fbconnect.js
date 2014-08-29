@@ -59,9 +59,9 @@
             if (typeof(FB) == 'undefined') {
                 return;
             }
-            if (action == 'reauthenticate') {
-                this.opts.loginOptions.auth_type = action;
-            }
+            //if (action == 'reauthenticate') {
+            //    this.opts.loginOptions.auth_type = action;
+            //}
 
             FB.login(function(response) {
                 if (response.authResponse) {
